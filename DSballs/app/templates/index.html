@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Judul Halaman -->
+	<title>Orbit Future Academy</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Icon -->
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href={{ url_for('static', filename='/css/bootstrap.min.css') }} type="text/css">
+	<link rel="stylesheet" href={{ url_for('static', filename='/css/client_side.css') }}  type="text/css">
+	
+	<!-- JavaScript -->
+	<script src={{ url_for('static', filename='/js/jquery_3.6.0.min.js') }} ></script>
+	<script src={{ url_for('static', filename='/js/bootstrap_3.4.1.min.js') }} ></script>
+</head>
+
+<body id="halamanku" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			
+			<!-- Logo -->
+			<div class="navbar-header">
+				<img src={{ url_for('static', filename='/images/orbit_logo.jpg') }} alt="Orbit Logo" 
+				width="50" height="50" align="left">
+				<a class="navbar-brand" href="#halamanku">&#160; Orbit Future Academy</a>
+			</div>
+			
+			<!-- Daftar Halaman -->
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#informasi">INFORMASI</a></li>
+					<li><a href="#aplikasi">APLIKASI</a></li>
+					<li><a href="#anggotaKelompok">ANGGOTA KELOMPOK</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Bagian Halaman (Informasi) -->
+	<div id="informasi" class="container-fluid">
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-sm-6">
+				<!-- Deskripsi Aplikasi -->
+				<h2>CBC</h2>
+				<h4>Collor Balls ClAssifier</h4><br>
+				<p style="text-align: justify;text-justify: inter-word;">
+					Aplikasi ini dibuat untuk menentukan spesies dari bunga iris berdasarkan pengukuran panjang serta lebar 
+					dari <i>sepal</i> dan <i>petal</i> bunga. "Iris Setosa", "Iris Versicolor", dan "Iris Virginica" 
+					adalah ketiga species bunga iris yang dapat diprediksi melalui aplikasi ini.
+					Pengguna hanya cukup memberikan 4 nilai pengukuran untuk dapat mengetahui spesies dari bunga iris tersebut.
+					Keempat nilai pengukuran tersebut adalah panjang <i>petal</i>, lebar <i>petal</i>, panjang <i>sepal</i>,
+					dan lebar <i>sepal</i>.
+				</p>
+				<br>
+
+				<!-- Tombol Mulai -->
+				<nav id="navgo" class="navbar" style="background-color:#ffffff;z-index: 0;">
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="btn btn-default btn-lg" href="#aplikasi" style="background-color:#28ace5">Mulai</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			
+			<div class="col-sm-6">
+				<br>
+				<br>
+				<!-- Gambar Deskripsi Aplikasi -->
+				<img src={{ url_for('static', filename='/images/Colorballs.JPG') }} width="500" ></img>
+			</div>
+		</div>
+		<br>
+	</div>
+	
+
+	<!-- Bagian Halaman (Aplikasi) -->
+	<div id="aplikasi" data-bs-spy="scroll" data-bs-target="#navgo" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-sm-6">
+				</br>
+				<!-- Input Nilai Pengukuran dari Pengguna -->
+				<h3 style="margin-left: 50px;">Tentukan </h3>
+				<form>
+					<div class="form-group" style="margin-left: 50px;">
+						<!-- Input Slider untuk Nilai Pengukuran Bunga Iris -->
+						<label for="range_Room">Room</label>&nbsp;&rarr;&nbsp;
+						<span id="rangeVal_Room">1 - 4<!-- Default value --></span>
+						<input type="range" min="1" max="4" step="1" value="1" class="slider" id="range_Room" 
+						onInput="$('#rangeVal_Room').html($(this).val())">
+						</br>
+						<label for="range_Partitions">Partitions</label>&nbsp;&rarr;&nbsp;
+						<span id="rangeVal_Partitions">1 - 4<!-- Default value --></span>
+						<input type="range" min="1" max="4" step="1" value="1" class="slider" id="range_Partitions" 
+						onInput="$('#rangeVal_Partitions').html($(this).val())">
+						</br>
+						<label for="range_Rows">Rows</label>&nbsp;&rarr;&nbsp;
+						<span id="rangeVal_Rows">1 - 4<!-- Default value --></span>
+						<input type="range" min="1" max="4" step="1" value="1" class="slider" id="range_Rows" 
+						onInput="$('#rangeVal_Rows').html($(this).val())">
+						</br>
+						<label for="range_Columns">Columns</label>&nbsp;&rarr;&nbsp;
+						<span id="rangeVal_Columns">1 - 4<!-- Default value --></span>
+						<input type="range" min="1" max="4" step="1" value="1" class="slider" id="range_Columns" 
+						onInput="$('#rangeVal_Columns').html($(this).val())">
+						</br>
+						<!-- Tombol Prediksi -->
+						<button type="submit" id="prediksi_submit" class="btn btn-default btn-lg">Prediksi</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-6">
+				<br>
+				<!-- Bagian Halaman untuk Hasil Prediksi -->
+				<div id="hasil_prediksi" align="center">
+						<!-- Hasil Prediksi akan ditampilkan di sini-->
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+	</div>
+
+	<!-- Bagian Halaman (Anggota Kelompok) -->
+	<div id="anggotaKelompok" class="container-fluid text-center">
+		<br>
+		<h2>ANGGOTA KELOMPOK</h2>
+		<h4>Tim Deployment Data Science</h4>
+		<div class="row slideanim">
+			<div class="col-sm-6">
+				<span><img src={{ url_for('static', filename='/images/Satrio.PNG') }} width="150" ></img></span>
+				<h3>Muhammad Satrio Ayuba</h3>
+				<p><a href="https://www.instagram.com/satrioayb/?hl=id"><img src={{ url_for('static', filename='/images/instagram.PNG') }} width="50" ></img></a></p>
+				<h5>Visioner</h5>
+				<p>Universitas Sari Mulia</p>
+			</div>
+			<div class="col-sm-6">
+				<span><img src={{ url_for('static', filename='/images/Fareh.PNG') }} width="150" ></img></span>
+				<h3>Muhammad Fareh Sahli</h3>
+				<p><a href="https://www.instagram.com/muhammdfarehsahli/?hl=id"><img src={{ url_for('static', filename='/images/instagram.PNG') }} width="50" ></img></a></p>
+				<h5>Visioner</h5>
+				<p>Universitas Sari Mulia</p>
+			</div>
+	    </div>
+
+	    <div class="row slideanim" >
+			<div class="col-sm-6">
+				<span class="glyphicon glyphicon-user logo-small" width="150"></span>
+				<h3>Nur Hafiz Anshari</h3>
+				<p><a href="https://www.instagram.com/nrhfzashri/?hl=id"><img src={{ url_for('static', filename='/images/instagram.PNG') }} width="50" ></img></a></p>
+				<h5>Visioner</h5>
+				<p>Universitas Sari Mulia</p>
+			</div>
+			<div class="col-sm-6">
+				<span><img src={{ url_for('static', filename='/images/Rahmini.PNG') }} width="150" ></img></span>
+				<h3>Rahmini</h3>
+				<p><a href="https://www.instagram.com/satrioayb/?hl=id"><img src={{ url_for('static', filename='/images/instagram.PNG') }} width="50" ></img></a></p>
+				<h5>Visioner</h5>
+				<p>Universitas Sari Mulia</p>
+			</div>
+	    </div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="container-fluid text-center">
+		<a href="#halamanku" title="To Top">
+			<span class="glyphicon glyphicon-chevron-up"></span>
+		</a>
+		<p>Orbit Future Academy <br> <a href="https://orbitfutureacademy.id/">orbitfutureacademy.id</a></p>
+	</footer>
+
+	<!-- JavaScript untuk Animasi Scroll dan Prediksi Model -->
+	<script  src={{ url_for('static', filename='/js/client_side.js') }}></script>
+
+</body>
+</html>
